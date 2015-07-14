@@ -64,13 +64,17 @@ void print_tree_helper(rbtree_node n, int indent) {
     }
 }
 
+#define TRACE
+
 int main() {
     int i;
     rbtree t = rbtree_create();
     print_tree(t);
 
-    for(i=0; i<5000; i++) {
-        int x = rand() % 10000;
+    int a[] = {1, 4 , 2, 10};
+    
+    for(i=0; i<sizeof(a)/sizeof(a[0]); i++) {
+        int x = a[i];
         int y = rand() % 10000;
 #ifdef TRACE
         print_tree(t);
@@ -79,7 +83,7 @@ int main() {
         rbtree_insert(t, (void*)x, (void*)y, compare_int);
         assert(rbtree_lookup(t, (void*)x, compare_int) == (void*)y);
     }
-    for(i=0; i<60000; i++) {
+    for(i=0; i<6; i++) {
         int x = rand() % 10000;
 #ifdef TRACE
         print_tree(t);
