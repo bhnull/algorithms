@@ -1,14 +1,14 @@
 
 
-# CC = gcc
-# CFLAGS = -g -O0
-# RM = rm
+CC = gcc
+CFLAGS = -g -O0
+RM = rm
 
-# OBJS = rbtree.o testmain.o
-# TARGET = rbtree.exe
+OBJS = rbtree.o rbtree_main.o
+TARGET = rbtree_main.exe
 
-# all: $(OBJS)
-# 	$(CC) $(CFLAGS) -o $(TARGET) $^
+all: $(OBJS)
+	$(CC) $(CFLAGS) -o $(TARGET) $^
 
-# clean: 	
-# 	$(RM) -rf *.o *.exe
+clean: 	
+	$(RM) -rf *.o *.exe

@@ -21,8 +21,8 @@
   linux/lib/rbtree.c
 */
 
-#include <linux/rbtree_augmented.h>
-#include <linux/export.h>
+#include "rbtree_augmented.h"
+/* #include <linux/export.h> */
 
 /*
  * red-black trees properties:  http://en.wikipedia.org/wiki/Rbtree
