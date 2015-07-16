@@ -39,7 +39,8 @@ enum {
 	true  = 1
 };
 #define EXPORT_SYMBOL(s) 
-
+#define container_of(ptr, type, member) \
+	((type *)((char *)(ptr) - (char *)&((type *)0)->member))
 
 
 struct rb_node {
