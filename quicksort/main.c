@@ -1,38 +1,28 @@
 
-void quicksort(int a[], int min, int max)
+void quicksort(int a[], int l, int r)
 {
-    int temp, i = min, j = max;
+    if (l < r) {
+        int i = l, j = r, p = a[l];
 
-    if (min >= max)
-        return;
-
-    while (i < j) {
-        while (a[j] >= a[i] && i < j)
-            j--;
-
-        if (i < j) {
-            temp = a[i];
+        while (i < j) {
+            while (a[j] > p && i < j)
+                j--;
             a[i] = a[j];
-            a[j] = temp;
+            while (a[i] <= p && i < j)
+                i++;
+            a[j] = a[i];
         }
 
-        while (a[i] <= a[j] && i < j)
-            i++;
+        a[i] = p;
 
-        if (i < j) {
-            temp = a[i];
-            a[i] = a[j];
-            a[j] = temp;
-        }
+        quicksort(a, l, i-1);
+        quicksort(a, i+1, r);
     }
-
-    quicksort(a, min, i - 1);
-    quicksort(a, j + 1, max);
 }
 
 int main(void)
 {
-    int a[] = {500, 7, 899, 9, 20, 60, 20};
+    int a[] = {500, 7, 899, 9, 9, 9, 9, 9, 9, 20, 60, 80};
 
     quicksort(a, 0, sizeof(a)/sizeof(a[0]) - 1);
 
